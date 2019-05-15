@@ -1,6 +1,6 @@
 # ~/.zshrc
 
-source ~/Development/personal-gits/dotfiles/powerlevel9k/config
+source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
 export PATH=~/.local/lib:~/.local/bin:$PATH
 export ZSH="~/.oh-my-zsh"
 export EDITOR='nvim'
