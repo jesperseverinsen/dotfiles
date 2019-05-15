@@ -2,7 +2,7 @@
 
 source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
 export PATH=~/.local/lib:~/.local/bin:$PATH
-export ZSH="~/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 export EDITOR='nvim'
 export BROWSER='google-chrome-stable'
 
