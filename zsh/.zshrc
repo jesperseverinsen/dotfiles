@@ -1,6 +1,6 @@
 # ~/.zshrc
 
-source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
+#source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
 export PATH=~/.local/lib:~/.local/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export EDITOR='nvim'
@@ -8,8 +8,8 @@ export BROWSER='google-chrome-stable'
 
 #source ~/tmuxinator/completion/tmuxinator.zsh
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
-# ZSH_THEME="spaceship"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="spaceship"
 
 # CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
