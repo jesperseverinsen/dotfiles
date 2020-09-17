@@ -1,10 +1,12 @@
 # ~/.zshrc
 
 #source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
-export PATH=~/.local/lib:~/.local/bin:$PATH
+export PATH=~/.local/lib:~/.local/bin:~/Development/flutter/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export EDITOR='nvim'
 export BROWSER='google-chrome-stable'
+export ANDROID_SDK_ROOT=~/Android/Sdk
+export ANDROID_HOME=~/Android/Sdk
 
 #source ~/tmuxinator/completion/tmuxinator.zsh
 
@@ -102,7 +104,8 @@ alias v="nvim"
 alias vv="nvim ."
 alias l="ll -a"
 alias remk="remarkable"
-alias foremans="foreman start"
+alias procdev="hivemind ./Procfile.dev"
+
 
 # Progras Aliases
 alias nginxlog="sudo chown jesper:jesper /var/log/nginx/access.log"
