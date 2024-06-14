@@ -1,12 +1,10 @@
 # ~/.zshrc
 
 #source ~/Development/personal-gits/dotfiles/zsh/powerlevel9k/config
-export PATH=~/.local/lib:~/.local/bin:~/Development/flutter/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$(yarn global bin):$HOME/Library/Python/3.11/bin:$PATH"
+
 export ZSH=~/.oh-my-zsh
 export EDITOR='nvim'
-export BROWSER='google-chrome-stable'
-export ANDROID_SDK_ROOT=~/Android/Sdk
-export ANDROID_HOME=~/Android/Sdk
 
 #source ~/tmuxinator/completion/tmuxinator.zsh
 
@@ -61,8 +59,14 @@ function gacpu() {
   git push -u origin $(current_branch)
 }
 
-function php_s() {
-  php -S localhost:8000
+function goto() {
+  p=$(realpath $1)
+  d=$(dirname $p)
+  cd $d
+}
+
+function gresign() {
+  git rebase --exec 'git commit --amend --no-edit -n -S' -i $1
 }
 
 source $ZSH/oh-my-zsh.sh
@@ -104,21 +108,30 @@ alias v="nvim"
 alias vv="nvim ."
 alias l="ll -a"
 alias remk="remarkable"
-alias procdev="hivemind ./Procfile.dev"
+alias lg="lazygit"
+alias cldev="cl ~/development"
 
+set -o ignoreeof
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
 
-# Progras Aliases
-alias nginxlog="sudo chown jesper:jesper /var/log/nginx/access.log"
+bindkey "^P" up-line-or-beginning-search
+bindkey '[C' forward-word
+bindkey '[D' backward-word
 
 # Set up rbenv
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 echo
-neofetch
+fastfetch
 echo
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
